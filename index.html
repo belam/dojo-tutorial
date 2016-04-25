@@ -25,16 +25,33 @@
         <script type="text/javascript">
             require([
                 "tutorial/BasicWidget",
+                "dojo/dom",
+                "dojo/on",
+                "dijit/Dialog",
                 "dojo/domReady!"
-            ], function(BasicWidget){
-                var basicWidget = new BasicWidget({
+            ], function(
+                BasicWidget, dom, on, Dialog
+            ){
+                var basicWidget, dialog;
+
+                basicWidget = new BasicWidget({
                     foo : "bar"
-                }, "referenceNode");
+                });
+
+                dialog = new Dialog({
+                    title : "dijit/Dialog"
+                });
+
+                dialog.addChild(basicWidget);
+
+                on(dom.byId("btn"), "click", function(){
+                    dialog.show();
+                });
             });
         </script>
 
     </head>
     <body class="claro">
-        <div id="referenceNode"></div>
+        <button id="btn">Open Dialog</button>
     </body>
 </html>
