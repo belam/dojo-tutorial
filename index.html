@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dojo Widget Tutorial</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/dijit.css" />
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/claro/claro.css" />
+
+        <script type="text/javascript">
+                    var dojoConfig = {
+                        async : true,
+                        debug : true,
+                        baseUrl : "./scripts/",
+                        packages : [
+                            {
+                                name : "tutorial",
+                                location : "tutorial"
+                            }
+                        ]
+                    };
+                </script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
+
+        <script type="text/javascript">
+            require([
+                "tutorial/BasicWidget",
+                "dojo/domReady!"
+            ], function(BasicWidget){
+                var basicWidget = new BasicWidget({
+                    foo : "bar"
+                }, "referenceNode");
+            });
+        </script>
+
+    </head>
+    <body class="claro">
+        <div id="referenceNode"></div>
+    </body>
+</html>
